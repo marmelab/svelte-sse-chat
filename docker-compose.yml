@@ -1,0 +1,29 @@
+version: "3.3"
+
+services:
+  node:
+    image: node:13-stretch
+    working_dir: "/app"
+    volumes:
+      - .:/app
+
+  frontend:
+    image: node:13-stretch
+    working_dir: "/app/packages/frontend"
+    command: yarn dev
+    user: "${UID}:${GID}"
+    ports:
+      - 5000:5000
+      - 35729:35729
+    volumes:
+      - .:/app
+
+  backend:
+    image: node:13-stretch
+    working_dir: "/app/packages/backend"
+    user: "${UID}:${GID}"
+    command: yarn dev
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/app

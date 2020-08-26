@@ -1,0 +1,4 @@
+packages/backend/node_modules/
+packages/frontend/node_modules/
+packages/frontend/public/build/
+node_modules/
